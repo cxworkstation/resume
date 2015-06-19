@@ -1,0 +1,81 @@
+/*
+       在默认情况下，元素body跟屏幕之间是有一个外边距的，如果此时不去掉这个默认外边距。
+       在banner的上方就会有一小的缝隙，这是很丑陋的。
+       */
+body,ul,li,div {
+    margin:0px;
+}
+
+body {
+    font-family: "Helvetica Neue",sans-serif;
+    font-size: 14px;;
+}
+
+.nav-box li a {
+    text-decoration: none;
+    color:#ffffff;
+    font-size: 0.9em;;
+    border:none;
+    outline: none;/*没有设置这个属性，在a元素的外围就会出现白色边框*/
+}
+
+/*
+这里如果将position的属性设置为fixed，并且将banner的宽度设置成合适的大小
+能达到我们想要的效果。但是这样做，就会使得前面的已经设置好的样式有所变化。
+将position设置成fixed后，那么它就与别的元素脱离了位置关系，此时，本来
+在它下面的元素就会置顶，而banner这一块也是置顶的而且它将覆盖它下面的层。
+因此，正文div置顶后就会有一部分内容被banner抵挡住。
+不是说这种方式不可行，也是可行的，只是要将正文div距离顶部banner的宽度。
+其实这样设计也是最简单的方式。
+另外一种方式是，伪造一个banner使其不可见，但是窗口的滑动条>0后就是可见的。
+并且置顶，处于最上层。
+*/
+.banner {
+    width: 2000px;
+    height:66px;
+    background-color:#20252b;
+    border-bottom:2px solid #ef4900;
+    z-index: 9;
+    top:0px;
+    position: fixed;
+}
+
+/*#00FF00 url(bgimage.gif) no-repeat fixed top;
+.fake-banner {
+    width:1660px;
+    height:66px;
+    background-color:#20252b;
+    border-bottom:2px solid #ef4900;
+    z-index:999999;
+    top:0px;
+    position: fixed;
+}
+*/
+.nav-box {
+    list-style: outside none none;
+    margin-left:309px;
+    width:458px;/*一定要设置成固定的宽度，要不然窗口在缩小时，会跑动，导致变形*/
+}
+
+.nav-box li {
+    height:66px;
+    width:151px;
+    float: left;
+    /* background-color:#ef4900;*/
+    border-right:0.5px solid black;
+    text-align:center;
+    vertical-align: middle;
+    line-height: 66px;
+    color:#ffffff;
+    /* overflow: hidden;*/
+}
+
+.nav-box .on{
+    background-color:#ef4900;
+}
+
+.main-content {
+    width:964px;
+    height:2500px; /*把宽度弄高点使得右边的窗口滑动条出现，要不然调出firebug，会使得滑动条出现，从而挤压页面，造成一点偏移*/
+    margin:66px auto;
+}

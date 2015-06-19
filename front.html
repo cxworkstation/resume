@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>前端页面技术</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <style type="text/css">
+        .left-content {
+            width:221px;
+            height:960px;
+            border:dashed red 1px;
+            float:left;
+            border-right:8px solid rgba(204,204,204,.7);
+        }
+
+        .left-content ul {
+            list-style:none;
+            padding:0px;
+        }
+
+        .left-content ul li{
+           padding-top:0px;
+        }
+
+        .left-content ul li h4{
+            width:221px;
+            padding-left:7px;
+            border-bottom:2px solid rgba(204,204,204,.7);
+        }
+        .left-content ul li ul {
+            list-style:none;
+        }
+
+        .left-content ul li ul li {
+            border-bottom:1px solid rgba(204,204,204,.5);
+            padding-left:15px;
+            line-height:28px;
+        }
+        .right-content {
+            width:730px;
+            height:960px;
+            border:dashed green 1px;
+            float: right;
+        }
+
+
+        .menu {
+            padding-top:0px;
+        }
+
+        .menu li a{
+            outline: none;
+            text-decoration: none;
+            color:#333333;
+        }
+
+        .in {
+            display: block;
+        }
+
+    </style>
+
+    <script type="text/javascript" src="js/menu.js"></script>
+</head>
+<body onload="init();">
+  <div>
+      <div class="banner">
+          <ul class="nav-box" name="nav">
+              <li class="first-li">
+                  <img src="image/mark.png" width="140px" height="66px">
+              </li>
+              <li myhref="index.html">
+                  <a style="cursor: pointer">我的简介</a>
+              </li>
+              <li class="on" myhref="front.html">
+                  <a style="cursor: pointer">页面设计</a>
+              </li>
+          </ul>
+      </div>
+      <!--
+      <div class="fake-banner in">
+          <ul class="nav-box" name="nav">
+              <li>
+                  <a href="#">我的简介</a>
+              </li>
+              <li class="last-li">
+                  <a href="#">页面设计</a>
+              </li>
+          </ul>
+      </div>
+     -->
+      <div class="main-content">
+           <div class="left-content">
+             <ul>
+                <li>
+                   <h4>变形</h4>
+                    <ul class="menu">
+                        <li><a href="#">transform[变形基础]</a></li>
+                        <li><a href="#">rotate()[旋转]</a></li>
+                        <li><a href="#">scale[缩放]</a></li>
+                        <li><a href="#">translate()[位移]</a></li>
+                        <li><a href="#">skew()[倾斜]</a></li>
+                        <li><a href="#">matrix()[矩阵变形]</a></li>
+                        <li><a href="#">perspective[透视]</a></li>
+                    </ul>
+                </li>
+
+                 <li>
+                     <h4>过度</h4>
+                     <ul class="menu">
+                         <li><a href="#">transform[变形基础]</a></li>
+                         <li><a href="#">rotate()[旋转]</a></li>
+                         <li><a href="#">scale[缩放]</a></li>
+                         <li><a href="#">translate()[位移]</a></li>
+                         <li><a href="#">skew()[倾斜]</a></li>
+                         <li><a href="#">matrix()[矩阵变形]</a></li>
+                         <li><a href="#">perspective[透视]</a></li>
+                     </ul>
+                 </li>
+
+                 <li>
+                     <h4>动画</h4>
+                     <ul class="menu">
+                         <li><a href="#">transform[变形基础]</a></li>
+                         <li><a href="#">rotate()[旋转]</a></li>
+                         <li><a href="#">scale[缩放]</a></li>
+                         <li><a href="#">translate()[位移]</a></li>
+                         <li><a href="#">skew()[倾斜]</a></li>
+                         <li><a href="#">matrix()[矩阵变形]</a></li>
+                         <li><a href="#">perspective[透视]</a></li>
+                     </ul>
+                 </li>
+             </ul>
+           </div>
+          <div class="right-content">
+
+          </div>
+      </div>
+  </div>
+</body>
+</html>
