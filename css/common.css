@@ -7,8 +7,9 @@ body,ul,li,div {
 }
 
 body {
-    font-family: "Helvetica Neue",sans-serif;
-    font-size: 14px;;
+	font-size: 15px;
+    font-family:黑体,"Helvetica Neue",sans-serif;
+    color: #000000;
 }
 
 .nav-box li a {
@@ -51,6 +52,17 @@ body {
     position: fixed;
 }
 */
+
+/*
+这里的margin-left属性是为了菜单导航栏最左边与内容的最左边对齐，但是如果将其
+设定为固定的大小，那么这样的网页就会具有局限性，也就是只能在同一屏幕大小的计算机
+上浏览并且不能变动窗口的大小。这显然不行。因此这个值需要随着窗口大小的变化而动态
+变化。这就需要用到js。
+那么这个值应该设计为多大呢？
+动态获得网页的宽度body_width:document.body.clientWidth
+内容的宽度为：964px
+因此margin-left的值可以设置为：(body_width-964)/2
+*/
 .nav-box {
     list-style: outside none none;
     margin-left:309px;
@@ -79,3 +91,9 @@ body {
     height:2500px; /*把宽度弄高点使得右边的窗口滑动条出现，要不然调出firebug，会使得滑动条出现，从而挤压页面，造成一点偏移*/
     margin:66px auto;
 }
+
+
+.click-menu {
+    background-color: #ef4900;
+}
+

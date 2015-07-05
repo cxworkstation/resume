@@ -1,0 +1,302 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>知识结构</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <style type="text/css">
+        .left-content {
+            width:221px;
+            height:960px;
+            border:dashed red 1px;
+            float:left;
+            border-right:8px solid rgba(204,204,204,.7);
+            top:66px;
+            position: fixed;
+        }
+
+        .left-content ul {
+            list-style:none;
+            padding:0px;
+        }
+
+        .left-content ul li{
+           padding-top:0px;
+        }
+
+        .left-content ul li h4{
+            width:221px;
+            padding-left:7px;
+            border-bottom:2px solid rgba(204,204,204,.7);
+        }
+        .left-content ul li ul {
+            list-style:none;
+        }
+
+        .left-content ul li ul li {
+            border-bottom:1px solid rgba(204,204,204,.5);
+            padding-left:15px;
+            line-height:28px;
+        }
+        .right-content {
+            width:730px;
+            height:2000px;
+            border:dashed green 1px;
+            float: right;
+        }
+
+
+        .menu {
+            padding-top:0px;
+        }
+
+        .menu li a{
+            outline: none;
+            text-decoration: none;
+            color:#333333;
+        }
+
+        .in {
+            display: block;
+        }
+
+        .content-title {
+            height:10%;
+            width:100%;
+        }
+
+        .content-main {
+            width:100%;
+        }
+
+        .content-title h4 {
+            margin-top:5px;;
+        }
+
+        #slider_bar ul {
+            list-style: none;
+            padding-left:6px;
+        }
+
+        #slider_bar ul li{
+            border-bottom:solid #1abcf8 1px;
+        }
+        #slider_bar ul li a{
+            text-decoration: none;
+            color:#414141;
+        }
+
+        .selected {
+            background-color:red;
+        }
+
+       .on {
+           display: block;
+       }
+
+        .out {
+            display: none;
+        }
+
+        .menu-opertor {
+            cursor: pointer;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/knowledge.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var body_width_0=document.body.clientWidth;
+            var left_space_0=(body_width_0-964)/2;
+            var w0=left_space_0+964;
+            $('#slider_bar').css('margin-left',w0);
+
+            $(window).scroll( function() {
+                var m=$(window).scrollTop;
+                var hScroll=$(window).scrollTop();
+                //如果大于0小于第一个元素相对顶部偏移
+                if(hScroll>0&&hScroll<=$('#content1').offset().top) {
+                    $('#slider_bar ul li').removeClass('selected').eq(0).addClass('selected');
+                }else
+                //大于第一个元素相对顶部的距离，小于第二个元素相对于顶部的距离
+                if(hScroll>$('#content1').offset().top&&hScroll<=$('#content2').offset().top) {
+                    $('#slider_bar ul li').removeClass('selected').eq(1).addClass('selected');
+                }else
+                //大于第二个元素相对于顶部的距离，小于第三个元素相对于顶部的距离
+                if(hScroll>$('#content2').offset().top&&hScroll<=$('#content3').offset().top) {
+                    $('#slider_bar ul li').removeClass('selected').eq(2).addClass('selected');
+                }
+            });
+        });
+    </script>
+</head>
+<body onload="init();">
+  <div>
+      <div class="banner">
+          <ul class="nav-box" name="nav">
+              <li class="first-li">
+                  <img src="image/mark.png" width="140px" height="66px">
+              </li>
+              <li myhref="index.html">
+                  <a style="cursor: pointer">我的简介</a>
+              </li>
+              <li class="on" myhref="front.html">
+                  <a style="cursor: pointer">知识结构</a>
+              </li>
+          </ul>
+      </div>
+      <div class="main-content">
+           <div class="left-content">
+             <ul>
+                <li>
+					<h4>计算机基础知识&nbsp;<span class="menu-opertor">-</span></h4>
+                    <ul class="menu on">
+					    <li><a href="#">数据结构</a></li>
+					    <li class="click-menu"><a href="net.html">计算机网络（重点协议）</a></li>
+                        <li><a href="#">操作系统</a></li>
+                    </ul>
+                   <h4>前端知识&nbsp;<span class="menu-opertor">+</span></h4>
+                    <ul class="menu out">
+					    <li><a href="#">html</a></li>
+					    <li><a href="#">css</a></li>
+                        <li><a href="#">js/jquery</a></li>
+						<li><a href="#">bootstrap</a></li>
+                    </ul>
+					 <h4>后台知识&nbsp;<span class="menu-opertor">+</span></h4>
+                    <ul class="menu out">
+                        <li><a href="javabase.html">javaSE</a></li>
+                        <li><a href="#">javaEE</a></li>
+                        <li><a href="#">spring</a></li>
+                        <li><a href="#">springmvc</a></li>
+                        <li><a href="#">mybatis</a></li>
+                    </ul>
+					 <h4>高级知识&nbsp;<span class="menu-opertor">+</span></h4>
+                    <ul class="menu out">
+                        <li><a href="#">缓存技术</a></li>
+                        <li><a href="#">KV存储</a></li>
+                        <li><a href="#">通信技术(套接字)</a></li>
+                    </ul>
+                </li> 
+             </ul>
+           </div>
+          <div class="right-content">
+              <div class="content-part" id="content1">
+                 <div class="content-title">
+                     <h4>常用的协议的端口</h4>
+                 </div>
+                  <div class="content-main">
+                      使用TCP协议的常见端口主要有以下几种：<br>
+                      （1）FTP：定义了文件传输协议，使用21端口。常说某某计算机开了FTP服务便是启动了文件传输服务。下载文件，上传主页，都要用到FTP服务。<br>
+                      （2）Telnet：它是一种用于远程登陆的端口，用户可以以自己的身份远程连接到计算机上，通过这种端口可以提供一种基于DOS模式下的通信服务。如以前的BBS是纯字符界面的，支持BBS的服务器将23端口打开，对外提供服务。<br>
+                      （3）SMTP：定义了简单邮件传送协议，现在很多邮件服务器都用的是这个协议，用于发送邮件。如常见的免费邮件服务中用的就是这个邮件服务端口，所以在电子邮件设置中常看到有这么SMTP端口设置这个栏，服务器开放的是25号端口。<br>
+                      （4）POP3：它是和SMTP对应，POP3用于接收邮件。通常情况下，POP3协议所用的是110端口。也是说，只要你有相应的使用POP3协议的程序（例如Foxmail或Outlook），就可以不以Web方式登陆进邮箱界面，直接用邮件程序就可以收到邮件（如是163邮箱就没有必要先进入网易网站，再进入自己的邮箱来收信）。<br>
+                      <p>
+                      使用UDP协议端口常见的有：<br>
+                      （1）HTTP：这是大家用得最多的协议，它就是常说的"超文本传输协议"。上网浏览网页时，就得在提供网页资源的计算机上打开80号端口以提供服务。常说"WWW服务"、"Web服务器"用的就是这个端口。<br>
+                      （2）DNS：用于域名解析服务，这种服务在WindowsNT系统中用得最多的。因特网上的每一台计算机都有一个网络地址与之对应，这个地址是常说的IP地址，它以纯数字+"."的形式表示。然而这却不便记忆，于是出现了域名，访问计算机的时候只需要知道域名，域名和IP地址之间的变换由DNS服务器来完成。DNS用的是53号端口。<br>
+                      （3）SNMP：简单网络管理协议，使用161号端口，是用来管理网络设备的。由于网络设备很多，无连接的服务就体现出其优势。<br>
+                      另外代理服务器常用以下端口：<br>
+                      （1）. HTTP协议代理服务器常用端口号：80/8080/3128/8081/9080<br>
+                      （2）. SOCKS代理协议服务器常用端口号：1080<br>
+                      （3）. FTP协议代理服务器常用端口号：21<br>
+                      （4）. Telnet协议代理服务器常用端口：23<br>
+                      </p>
+                  </div>
+              </div>
+
+              <div class="content-part" id="content2">
+                  <div class="content-title">
+                     <h4> 三次握手与四次挥手</h4>
+                  </div>
+                  <div class="content-main">
+                      三次握手：<br>
+                      第一次握手：客户端发送一个TCP的syn标志位置1的包指明客户打算连接服务器端口以及保存在seq（Sequence Number包头序列号)里的一个初始化序列号x。<br>
+                      第二次握手：服务器回确认包ack应答。即syn标志位和ack标志位均为1，同时将确认序列号ack（Acknowledgement Number)设置为客户的isn加1即x+1.<br>
+                      第三次握手：客户端再次发送确认包ack,syn标志位为0，ack标志位为1，并且把服务器发来的ack的序列号字段加1，放在确认字段中发给服务器，并将自身的seq加1。<br>
+                     <p>
+                      TCP连接的全双工的，每个方向都要单独关闭，被关闭一方是先关读后关写，主动方是先关写后关读。<br>
+                      四次挥手：<br>
+                      第一次挥手：客户端发完数据了之后，客户端向服务器发送一个FIN，序列号为i，用来关闭客户端到服务器的数据传输连接。<br>
+                      第二次挥手：服务器收到这个FIN后，回复客户端一个ack,确认序号为收到的序号加1，即为i+1；关闭服务器读通道，客户机收到了ack，序列号为i+1后，关闭客户机写通道<br>
+                      （此时，客户机仍能通过读通道读取服务器的数据，服务器仍能通过写通道写数据）------可以以此分为上下两个<br>
+                      第三次挥手：服务器发送完数据,发送了一个FIN，序列号为j给客户端；客户机收到服务器发的FIN后，返回了确认字段ack,序列号为j+1,关闭客户机的读通道<br>
+                      第四次挥手：服务器收到ack确认报文后关闭服务器写通道。<br>
+                     </p>
+                  </div>
+              </div>
+
+              <div class="content-part" id="content3">
+                  <div class="content-title">
+                      <h4>协议HTTP/TCP/IP</h4>
+                  </div>
+                  <div class="content-main">
+                      1.浏览器如何通过http获取远端服务器的资源：（现在多用http1.1)<br>
+                      http://www.joes-hardware.com:80/tools.html<br>
+                      1)得到主机名www.joes-hardware.com<br>
+                      2)通过主机名，DNS域名解析器可以将其解析为IP地址161.58.228.45<br>
+                      3)得到端口号80（80也是默认端口）（端口号占2个字节，0-65535，一共65536个，在同一个协议下端口号不能重复，不同的协议下可以重复，1024以下给知名厂商，我们不要占用）<br>
+                      4)通过IP和端口号找到Web资源地址，建立一条与Web服务器的TCP连接<br>
+                      5)客户端向服务器发送Http请求报文（包括1.起始行 2请求首部 以一空行（回车或者换行）表示结束）<br>
+                      6)浏览器向客户端发送Http响应报文（包括1.起始行 2请求首部 3请求体）<br>
+                      7)关闭连接，显示文档（html)<br>
+                      <p>
+                      2.Web缓存<br>
+                      Web cache(web缓存)和代理缓存(proxy cache)是一种特殊的http代理服务器，可以将通过代理传送的常用文档复制保存下来，下一个请求同一个文档的客户端就可以享受缓存里的私有副本提供的服务了。
+                      </p>
+                      <p>
+                      3.Http报文的组成：<br>
+                      1)起始行 ：<br>
+                      1.请求行 ：（GET www.taobao.com http/1.1）<br>
+                      方法 请求地址 http版本号（由空格分开）<br>
+                      方法：这里的方法要写在最前面<br>
+                      Get/Post/option/delete/put/head(获取首部)/put<br>
+                      安全方法：Get和Head是安全方法（就是在服务器上执行可能不安全的动作的时候，不安全的方法就允许http程序开发者提醒用户）<br>
+                          <p>
+                      2.响应行 ：（http/1.1 200 ok)<br>
+                      http版本 状态码 以及描述状态的信息<br>
+                      状态码：<br>
+                      当资源移动位置了，永久的301错误 暂时的302错误；负载均衡：当超载服务器收到一条请求的时候，可以重定向到一个负载较轻的服务器上去 303 未被修改 304——3是重定向错误<br>
+                      找不到资源 404错误 401未授权（需要用户名密码） 405资源被禁止——4是客户端错误<br>
+                      500 服务器内部错误 501 未实现，服务器无法支持对于资源的请求 ——5是服务器错误<br>
+                      注意：1）某些代理服务器在DNS查询超时时会返回400或者500错误<br>
+                      &nbsp; &nbsp; &nbsp;2）由于临时服务器维护或者服务器过载，导致服务器当前无法处理请求，这是暂时的，并且将一段时间以后恢复，如果能预计延迟时间，那么响应中会有一个reTry-After头记录了延迟，如果没有这个retry-After，会按照500错误处理<br>
+                      2)首部：<br>
+                      1.内容首部：Content-Type 这个主题的对象类型<br>
+                      2.请求缓存首部：比如，验证以缓存的副本是否有效以及更好的估计以缓存的资源何时失效所需的信息，以及更好的估计已缓存资源何时失效所需的线索。<br>
+                      Expires 实体不在有效，要从原始的源端再次获取此实体的日期和时间(说明实体被修改了)-----指定了过期日期，过了这个日期就说明文档不再新鲜<br>
+                      Cache-Control:max-age定义了最大使用期限（从生成文档到最后无法使用的最大使用时间）<br>
+                      Last-Modified 这个实体最后一次被修改的日期和时间。<br>
+                      </p>
+                      3)主体：主体在请求中没有，响应中有。响应主体就是从服务器端返回的内容。
+                    </p>
+                      <p>
+                      3.Http事务延迟原因：<br>
+                      1)因为解析域名时候，用DNS域名解析器解析主机名称IP地址可能需要花费数十秒时间；<br>
+                      2)建立TCP连接的时候，客户端需要向服务器端发送一条TCP请求，并等待服务器会送一个接受应答。（3次握手）<br>
+                      SYN---建立连接 FIN---关闭连接  ACK----响应<br>
+                      3次握手：<br>
+                      这里要注意的是：Tcp连接的第一个数据包是SYN，是一种非常小的数据包，然后服务器以SYN+ACK应答，表示接收到，最后客户端以ACK消息响应。<br>
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div style="border:solid red 1px;width:150px;top:86px;position: fixed;margin-left:1356px;" id="slider_bar">
+          <ul>
+              <li>
+                  <a href="#content1">常用协议端口</a>
+              </li>
+              <li>
+                  <a href="#content2">三次握手与四次挥手</a>
+              </li>
+              <li>
+                  <a href="#content3">协议HTTP/TCP/IP</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</body>
+</html>

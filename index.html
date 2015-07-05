@@ -5,15 +5,15 @@
     <meta charset="utf-8">
     <title>人物简介</title>
     <link rel="stylesheet" type="text/css" href="css/common.css">
+    <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="js/menu.js" ></script>
     <style type="text/css">
         .main-content {
-            border:solid #008080 1px;
+            border:solid #049c8f 1px;
         }
         .person-info {
             height:300px;
         }
-
         .person-image {
             width:42%;
             height:280px;
@@ -58,6 +58,9 @@
         .education-background table tr td {
             height:30px;
         }
+        body {
+            background: gainsboro url(image/psbe.png) no-repeat fixed top
+        }
     </style>
 </head>
 <body onload="init();">
@@ -70,19 +73,20 @@
             <li class="on" myhref="index.html">
                 <a style="cursor: pointer;">我的简介</a>
             </li>
-            <li myhref="front.html">
-                <a style="cursor: pointer;">页面设计</a>
+            <li myhref="net.html">
+                <a style="cursor: pointer;">知识结构</a>
             </li>
         </ul>
     </div>
     <div class="main-content">
         <div class="person-info">
           <div class="person-image">
-            <img src="image/psbe.jpg" title="我喜欢这种感觉">
-                <table style="float:right;width:186px;padding-left:10px;line-height:60px;">
+            <img src="image/1.png" title="我喜欢这种感觉" width="208px" height="256px">
+			 <div style="float:right;width:186px;padding-left:10px;padding-top:20px;line-height:52px;">
+                <table >
                      <tr>
                         <td>
-                        一个也算地道的南方姑娘
+                         一个也算地道的南方姑娘
                         </td>
                      </tr>
                     <tr>
@@ -97,13 +101,23 @@
                 </tr>
                 <tr>
                     <td>
-                        独身来到了北方。。。
+                        独身来到了北方冰城
+                    </td>
+                </tr>
+				 <tr>
+                    <td>
+                        在学校接触到了编程
                     </td>
                 </tr>
             </table>
-          </div>
+                 </div>
+           </div>
         <div class="basic-info">
              <table>
+				<tr>
+                     <td>&nbsp;</td>
+                     <td>&nbsp;</td>
+                 </tr>
                  <tr>
                      <td>姓名：</td>
                      <td>谢力群</td>
@@ -129,8 +143,12 @@
                      <td>信息管理与信息系统</td>
                  </tr>
                  <tr>
-                     <td>联系方式：</td>
-                     <td>1343965426@qq.com</td>
+                     <td>QQ：</td>
+                     <td>630094602@qq.com</td>
+                 </tr>
+				  <tr>
+                     <td>联系电话：</td>
+                     <td>15604665190</td>
                  </tr>
              </table>
         </div>
@@ -164,10 +182,10 @@
                     <td>了解Java虚拟机的些许运行机制，如JVM内存构成及其内存模型</td>
                 </tr>
                 <tr>
-                    <td>能用如今公司主流Web开发框架进行项目开发，如Spring/SpringMVC、Mybatis</td>
+                    <td>能使用如今公司主流Web开发框架进行项目开发，如Spring/SpringMVC、Mybatis，并对这些框架有一定的了解</td>
                 </tr>
                 <tr>
-                    <td>熟悉数据结构/算法、操作系统、数据库原理</td>
+                    <td>熟悉数据结构/算法、操作系统、计算机网络，数据库原理</td>
                 </tr>
             </table>
         </div>
@@ -183,6 +201,8 @@
                     <td>数据结构</td>
                     <td>数据库原理</td>
                     <td>计算机网络</td>
+					<td>操作系统</td>
+					<td>信息管理与信息系统</td>
                 </tr>
             </table>
         </div>
@@ -191,17 +211,26 @@
         <div class="education">
             <div class="education-title">实习经历</div>
         </div>
-        <div class="education-background" style="height:146px;">
+        <div class="education-background" style="height:212px;">
             <div style="font-weight: bolder;padding-left:20px;margin-top:10px;">
-                2013年——2015年  黑龙江大学创业基地
+                2012年——至今  黑龙江大学信管创业基地
             </div>
             <div style="padding-left:20px;margin-top:6px;font-weight: bold">
                 【简单描述】
             </div>
-            <div style="padding-left:22px;margin-top:4px;">
-                黑大教育学院创业基地是将具有编程爱好的人(学生、社会创业者)聚集起来，进行项目开发的一种创业孵化之地。<br>
-                它有十几年的历史了，在这里诞生了几家在哈尔滨小有名字的创业公司。当然最重要的是，它为很多知名IT公司<br>
+            <div style="padding-left:22px;margin-top:4px;line-height:25px;word-spacing:4px">
+                黑龙江大学创业教育学院-信管创业基地是将具有编程爱好的人(学生、社会创业者)聚集起来，进行项目开发的一种创业孵化之地。<br>
+                它有十几年的历史了，在创业教育园区诞生了几家在哈尔滨小有名字的创业公司。当然最重要的是，它为很多知名IT公司<br>
                 培养了无数的职场精英。
+            </div>
+			<div style="font-weight: bolder;padding-left:20px;margin-top:10px;">
+                2015年3月  哈尔滨海康有限公司
+            </div>
+            <div style="padding-left:20px;margin-top:46px;font-weight: bold">
+                【简单描述】
+            </div>
+            <div style="padding-left:22px;margin-top:4px;">
+                这是一家外包型企业，兼顾培训和外包网站，系统开发，按照学校的安排，我在这里实习了将近一个月。
             </div>
         </div>
 
@@ -232,7 +261,7 @@
                         因为项目的开发周期还是算比较长的。我们只有2个成员。
                     </li>
                     <li>
-                        本人负责项目的后台开发，另外一个成员负责页面的设计与构成
+                        本人负责项目的后台开发和前后台的交互，另外一个成员负责页面的设计与构成
                     </li>
                 </ul>
             </div>
@@ -241,21 +270,21 @@
             </div>
             <div style="padding-left:22px;margin-top:4px;">
                 <ul style="padding-left:20px;list-style-type: circle;line-height:40px;">
-                    <li>项目使用了SpringMVC框架、Tomcat服务器、MySQL数据库。</li>
-                    <li>我把项目拆分成了前端展示和后台编辑。他们是租用的阿里云服务器，因此这样分开的唯一好处就是为了 后期有可能提供分布式服务。毕竟，需要将项目分发到多个域上面。</li>
+                    <li>项目使用了springMVC框架、Tomcat服务器、MySQL数据库</li>
+                    <li>根据需求，我把项目拆分成了前端展示和后台编辑。他们是租用的阿里云服务器，因此这样分开的唯一好处就是为了 后期有可能提供分布式服务。毕竟，需要将项目分发到多个域上面。</li>
                     <li>对于不同的复杂重要性功能，比如商品管理、订单处理、价格管理、单位管理、打折管理、邮件服务、支付等等都是分功能 模块进行开发，做到了灵活易扩展。对于前端页面<br>
                         就是一个壳，内容都能从后端进行上传编辑，通过这样的 前后台分工、功能模块的分工，对于后期的扩展维护还是比较轻松的。</li>
                     <li>针对网站安全问题，我们参照了OWASP对咱们的项目进行了各种排查与防范。比如最常见的sql注入、跨站脚本攻击等等。</li>
                 </ul>
             </div>
             <div style="padding-left:20px;margin-top:6px;font-weight: bold">
-                【问题与解决方案】<br>
+                【问题与解决方案】<br/><br/>
                &nbsp;&nbsp; 一个项目下来，细节问题还是挺多的，这里只列举其中2个：
             </div>
             <div style="padding-left:22px;margin-top:4px;">
                 <ul style="padding-left:15px;list-style-type: decimal;line-height:40px;">
                     <li>
-                        <span style="color: red;">问题：</span>商品分类以及商品比较多，而且它是每个页面上都会需要的。如果每加载一次页面就要去数据库里查询出分类及其分类下的二级分类以及商品。这无疑会给数据库造成不小的压力。另外资源有限，没有提供分布式缓存服务。
+                        <span style="color: red;font-size: 16px">问题：</span>商品分类以及商品比较多，而且它是每个页面上都会需要的。如果每加载一次页面就要去数据库里查询出分类及其分类下的二级分类以及商品。这无疑会给数据库造成不小的压力。另外资源有限，没有提供分布式缓存服务。
                         <div style="margin-top:20px;">
                             <span style="color:green;">解决方案：</span>既然想到要缓存，而又在没有分布式缓存的作用下，我们只能利用服务器缓存或者是用户代理缓存，即浏览器
                             缓存。我于是利用了http协议的某些缓存策略。显然，这样的区域也不是刷新页面获得，而是通过异步请求，然后将内容

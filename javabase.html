@@ -1,0 +1,563 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>知识结构</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <style type="text/css">
+        .left-content {
+            width:221px;
+            height:960px;
+            border:dashed red 1px;
+            float:left;
+            border-right:8px solid rgba(204,204,204,.7);
+            top:66px;
+            position: fixed;
+        }
+
+        .left-content ul {
+            list-style:none;
+            padding:0px;
+        }
+
+        .left-content ul li{
+           padding-top:0px;
+        }
+
+        .left-content ul li h4{
+            width:221px;
+            padding-left:7px;
+            border-bottom:2px solid rgba(204,204,204,.7);
+        }
+        .left-content ul li ul {
+            list-style:none;
+        }
+
+        .left-content ul li ul li {
+            border-bottom:1px solid rgba(204,204,204,.5);
+            padding-left:15px;
+            line-height:28px;
+        }
+        .right-content {
+            width:730px;
+            border:dashed green 1px;
+            float: right;
+        }
+
+
+        .menu {
+            padding-top:0px;
+        }
+
+        .menu li a{
+            outline: none;
+            text-decoration: none;
+            color:#333333;
+        }
+
+        .in {
+            display: block;
+        }
+
+        .content-title {
+            height:10%;
+            width:100%;
+        }
+
+        .content-main {
+            width:100%;
+        }
+
+        .content-title h4 {
+            margin-top:5px;;
+        }
+
+        #slider_bar ul {
+            list-style: none;
+            padding-left:6px;
+        }
+
+        #slider_bar ul li{
+            border-bottom:solid #1abcf8 1px;
+        }
+        #slider_bar ul li a{
+            text-decoration: none;
+            color:#414141;
+        }
+
+        .selected {
+            background-color:red;
+        }
+
+       .on {
+           display: block;
+       }
+
+        .out {
+            display: none;
+        }
+
+        .menu-opertor {
+            cursor: pointer;
+        }
+
+        .code {
+            border:solid gray 8px;
+            -moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
+            border-radius:15px;
+
+            font-weight: bold;
+            font-size:18px;
+        }
+
+        .code-lev1 {
+            padding-left:100px;
+        }
+        .code-lev2 {
+            padding-left:140px;
+        }
+
+        .code-lev3 {
+            padding-left:180px;
+        }
+
+        .code-lev4 {
+            padding-left:220px;
+        }
+        .key {
+            color: #7f0055;
+
+        }
+
+        .args {
+            color:#6a3e3e;
+        }
+
+        .zhushi {
+            color:#3f7f5f;
+        }
+
+        .str {
+            color:#0000ca;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/knowledge.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var body_width_0=document.body.clientWidth;
+            var left_space_0=(body_width_0-964)/2;
+            var w0=left_space_0+964;
+            $('#slider_bar').css('margin-left',w0);
+
+            $(window).scroll( function() {
+                var m=$(window).scrollTop;
+                var hScroll=$(window).scrollTop();
+                //如果大于0小于第一个元素相对顶部偏移
+                if(hScroll>0&&hScroll<=$('#content1').offset().top) {
+                    $('#slider_bar ul li').removeClass('selected').eq(0).addClass('selected');
+                }else
+                //大于第一个元素相对顶部的距离，小于第二个元素相对于顶部的距离
+                if(hScroll>$('#content1').offset().top&&hScroll<=$('#content2').offset().top) {
+                    $('#slider_bar ul li').removeClass('selected').eq(1).addClass('selected');
+                }else
+                //大于第二个元素相对于顶部的距离，小于第三个元素相对于顶部的距离
+                if(hScroll>$('#content2').offset().top&&hScroll<=$('#content3').offset().top) {
+                    $('#slider_bar ul li').removeClass('selected').eq(2).addClass('selected');
+                }else
+                //大于第三个元素相对于顶部的距离，小于第四个元素相对于顶部的距离
+                if(hScroll>$('#content3').offset().top&&hScroll<=$('#content4').offset().top) {
+                    $('#slider_bar ul li').removeClass('selected').eq(3).addClass('selected');
+                }else
+                //大于第四个元素相对于顶部的距离，小于第五个元素相对于顶部的距离
+                if(hScroll>$('#content4').offset().top&&hScroll<=$('#content5').offset().top) {
+                    $('#slider_bar ul li').removeClass('selected').eq(4).addClass('selected');
+                }else
+                //大于第五个元素相对于顶部的距离，小于第六个元素相对于顶部的距离
+                if(hScroll>$('#content5').offset().top&&hScroll<=$('#content6').offset().top) {
+                    $('#slider_bar ul li').removeClass('selected').eq(5).addClass('selected');
+                }else
+                if(hScroll>$('#content6').offset().top&&hScroll<=$('#content7').offset().top) {
+                    $('#slider_bar ul li').removeClass('selected').eq(6).addClass('selected');
+                }else
+                if(hScroll>$('#content7').offset().top&&hScroll<=$('#content8').offset().top) {
+                    $('#slider_bar ul li').removeClass('selected').eq(7).addClass('selected');
+                }else
+                if(hScroll>$('#content8').offset().top&&hScroll<=$('#content9').offset().top) {
+                    $('#slider_bar ul li').removeClass('selected').eq(8).addClass('selected');
+                }else
+                if(hScroll>$('#content9').offset().top&&hScroll<=$('#content10').offset().top) {
+                    $('#slider_bar ul li').removeClass('selected').eq(9).addClass('selected');
+                }
+            });
+        });
+
+    </script>
+</head>
+<body onload="init();">
+  <div>
+      <div class="banner">
+          <ul class="nav-box" name="nav">
+              <li class="first-li">
+                  <img src="image/mark.png" width="140px" height="66px">
+              </li>
+              <li myhref="index.html">
+                  <a style="cursor: pointer">我的简介</a>
+              </li>
+              <li class="on" myhref="front.html">
+                  <a style="cursor: pointer">知识结构</a>
+              </li>
+          </ul>
+      </div>
+      <div class="main-content">
+           <div class="left-content">
+             <ul>
+                <li>
+					<h4>计算机基础知识&nbsp;<span class="menu-opertor">+</span></h4>
+                    <ul class="menu out">
+					    <li><a href="#">数据结构</a></li>
+					    <li><a href="net.html">计算机网络（重点协议）</a></li>
+                        <li><a href="#">操作系统</a></li>
+                    </ul>
+                   <h4>前端知识&nbsp;<span class="menu-opertor">+</span></h4>
+                    <ul class="menu out">
+					    <li><a href="#">html</a></li>
+					    <li><a href="#">css</a></li>
+                        <li><a href="#">js/jquery</a></li>
+						<li><a href="#">bootstrap</a></li>
+                    </ul>
+					 <h4>后台知识&nbsp;<span class="menu-opertor">-</span></h4>
+                    <ul class="menu on">
+                        <li class="click-menu"><a href="javabase.html">javaSE</a></li>
+                        <li><a href="#">javaEE</a></li>
+                        <li><a href="#">spring</a></li>
+                        <li><a href="#">springmvc</a></li>
+                        <li><a href="#">mybatis</a></li>
+                    </ul>
+					 <h4>高级知识&nbsp;<span class="menu-opertor">+</span></h4>
+                    <ul class="menu out">
+                        <li><a href="#">缓存技术</a></li>
+                        <li><a href="#">KV存储</a></li>
+                        <li><a href="#">通信技术(套接字)</a></li>
+                    </ul>
+                </li> 
+             </ul>
+           </div>
+          <div class="right-content">
+              <div class="content-part" id="content1">
+                 <div class="content-title">
+                     <h4>JDK/JRE/JVM关系</h4>
+                 </div>
+                  <div class="content-main">
+                      JDK的java开发环境：包含JRE和一些开发工具包（lib下），命令（bin下）<br>
+                      JRE是java运行时环境：包含JVM和一些运行时的类库（lib下）<br>
+                      JVM是java虚拟机<br>
+                      </p>
+                  </div>
+              </div>
+
+              <div class="content-part" id="content2">
+                  <div class="content-title">
+                     <h4> 创建一个Thread(线程)</h4>
+                  </div>
+                  <div class="content-main">
+                      继承Thread类：<br>
+                      <div class="code">
+                          <span class="code-lev1"><span class="key">class</span> MyThread  <span class="key">extends</span> Thread{</span><br>
+                          <span class="code-lev2"><span class="key">private</span> String name;</span><br>
+                          <span class="code-lev2"><span class="key">public</span> MyThread(String name){</span><br>
+                          <span class="code-lev3">This.name=name;</span><br>
+                          <span class="code-lev2">}</span><br>
+                          <span class="code-lev2"><span class="key">public</span> void run(){</span><br>
+                          <span class="code-lev3">for(int i=0;i<100;i++){</span><br>
+                          <span class="code-lev3">System.out.println(name+“启动当前线程的run方法”);</span><br>
+                          <span class="code-lev3">try {</span><br>
+                          <span class="code-lev4">Thread.sleep(200);</span><br>
+                          <span class="code-lev3">}catch(Exception e){</span><br>
+                          <span class="code-lev4">e.printStackTrace();</span><br>
+                          <span class="code-lev3">}</span><br>
+                          <span class="code-lev3">}</span><br>
+                          <span class="code-lev2">}</span><br>
+                          <span class="code-lev1"> }</span><br>
+                      </div>
+                      <p></p>
+                     实现Runnable接口：<br>
+                      <div class="code">
+                          <span class="code-lev1"><span class="key">class</span> MyThread  <span class="key">implements</span> Runnable{</span><br>
+                          <span class="code-lev2"><span class="key">private</span> String name;</span><br>
+                          <span class="code-lev2"><span class="key">public</span> MyThread(String name){</span><br>
+                          <span class="code-lev3">This.name=name;</span><br>
+                          <span class="code-lev2">}</span><br>
+                          <span class="code-lev2"><span class="key">public</span> void run(){</span><br>
+                          <span class="code-lev3">for(int i=0;i<100;i++){</span><br>
+                          <span class="code-lev3">System.out.println(name+“启动当前线程的run方法”);</span><br>
+                          <span class="code-lev3">try {</span><br>
+                          <span class="code-lev4">Thread.sleep(200);</span><br>
+                          <span class="code-lev3">}catch(Exception e){</span><br>
+                          <span class="code-lev4">e.printStackTrace();</span><br>
+                          <span class="code-lev3">}</span><br>
+                          <span class="code-lev3">}</span><br>
+                          <span class="code-lev2">}</span><br>
+                          <span class="code-lev1"> }</span><br>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="content-part" id="content3">
+                  <div class="content-title">
+                      <h4>启动线程</h4>
+                  </div>
+                  <div class="content-main">
+                      启动了新的执行线程(具有新的调用栈)<br>
+                      该线程从新状态(新状态是指new了一个Thread对象，但是还没有形成新的线程)转化为就绪状态，一旦获得时间片就可以执行<br>
+                      当线程获得机会执行时，其目标run方法将会运行<br>
+                  </div>
+              </div>
+
+              <div class="content-part" id="content4">
+                  <div class="content-title">
+                      <h4>注意的问题</h4>
+                  </div>
+                  <div class="content-main">
+                     每个线程只能启动一次，不能重复启动<br>
+                      run方法结束，线程结束<br>
+                      线程一旦启动，就拥有了和主线程一般的地位，不受主线程的影响
+                  </div>
+              </div>
+
+              <div class="content-part" id="content5">
+                  <div class="content-title">
+                      <h4>线程栈</h4>
+                  </div>
+                  <div class="content-main">
+                      线程栈是指某时刻内存中线程调度的栈信息，当前方法总是置于栈顶的，而且栈信息随着时间而动态变化。<br>
+                      是在start方法之后创建方法调用栈和程序计数器的。
+                  </div>
+              </div>
+
+              <div class="content-part" id="content6">
+                  <div class="content-title">
+                      <h4> 线程的几种状态</h4>
+                  </div>
+                  <div class="content-main">
+                        <img src="image/threadState.png">
+                  </div>
+              </div>
+
+              <div class="content-part" id="content7">
+                  <div class="content-title">
+                      <h4> 阻塞的几种情况</h4>
+                  </div>
+                  <div class="content-main">
+                      <ul>
+                          <li>睡眠sleep</li>
+                          <li>调用了线程阻塞方法如：wait</li>
+                          <li>因为需要对象锁而阻塞</li>
+                      </ul>
+                      JVM实行的是优先级的抢险调度机制。<br>
+                      线程的优先级是从1到10，默认5，设置优先级:<br>
+                      <div class="code">
+                          <span class="code-lev3">Thread t=new Thread();</span><br>
+                          <span class="code-lev3">t.setPriority(8);</span><br>
+                          <span class="code-lev3">t.start();</span>
+                      </div>
+                      (1)yield线程让步：暂停当前线程，当当前线程从执行状态转到可执行的就绪状态。yield让步对象
+                      是和当前线程同一个优先级或者比当前优先级高的就绪队列中的其他线程重新抢夺时间片，实现轮转执行。
+                      但是可能这个时候，还是本线程抢夺到时间片段，所以可能没什么影响。yield这个方法后，不会进入
+                      阻塞状态。<br>
+                      (2)join在一个线程中另一个线程调用join方法，当前线程被阻塞，直到join进来的线程执行完毕才会执行。
+                      这个方法是把异步的线程转成同步执行。
+                  </div>
+              </div>
+
+
+              <div class="content-part" id="content8">
+                  <div class="content-title">
+                      <h4> 后台线程</h4>
+                  </div>
+                  <div class="content-main">
+                     <div class="code">
+                         <span class="code-lev1"><span class="key">public</span> class DaemonThread <span class="key">extends</span> Thread {</span><br>
+                         <span class="code-lev2"><span class="key">public void run() {</span></span><br>
+                         <span class="code-lev3">for(int i=0;i<10000;i++) {</span><br>
+                         <span class="code-lev4">System.out.println(this.getName()+" "+i);</span><br>
+                         <span class="code-lev3">}</span><br>
+                         <span class="code-lev2"><span class="key">public static void</span> main(String[]args) {</span><br>
+                         <span class="code-lev3">DaemonThread t=new DaemonThread();</span><br>
+                         <span class="code-lev3">t.setDaemon(true);</span><br>
+                         <span class="code-lev3">t.start();</span><br>
+                         <span class="code-lev3">for(int i=0;i<20;i++) {</span><br>
+                         <span class="code-lev4">System.out.println(Thread.currentThread().getName()+" "+i);</span><br>
+                         <span class="code-lev3">}</span><br>
+                         <span class="code-lev2">}</span><br>
+                         <span class="code-lev1">}</span>
+                     </div>
+                      设置后台线程要在start之前，这里没有打印到10000就结束了，因为t是一个后台线程，只要main结束，后台线程也就
+                      自动随之死亡，如果整个虚拟机只剩下了后台线程，那么虚拟机也就会退出。当只剩下后台线程之后，JVM会通知
+                      后台线程死亡，但从它接受到执行做出响应需要一定的时间。<br>
+                      前台线程创建的线程默认是前台线程，后台创建的线程默认是后台线程。
+                  </div>
+              </div>
+
+
+              <div class="content-part" id="content9">
+                  <div class="content-title">
+                      <h4> 线程同步</h4>
+                  </div>
+                  <div class="content-main">
+                      同步监视器<br>
+                      同步代码块：<br>
+                      <div class="code">
+                          <span class="code-lev3"><span class="key">synchronized</span>(obj) {</span><br>
+                          <span class="code-lev3">}</span><br>
+                      </div>
+                      同步方法：<br>
+                      <div class="code">
+                          <span class="code-lev3"><span class="key">public synchronized</span> void func() {</span><br>
+                          <span class="code-lev3">}</span>
+                      </div>
+                      <p>
+                      同步方法不能显示的定义同步监视器，这个同步监视器就是调用它的this属性，任何时刻都只有
+                      一个线程获得同步监视器的锁定，同步方法执行后，该线程释放同步监视器的锁定。同步监视器一般为上锁的对象。
+                      </p>
+                      <p>
+                          释放锁的锁定：
+                          (1)当前同步方法结束后；<br>
+                          (2)遇到break/return阻扰了该方法的继续执行；<br>
+                          (3)出现了未处理的error或exception；<br>
+                          (4)执行了wait方法（该方法必须在synchronized里面）只有
+                          notify才会让其回到对象锁
+                      </p>
+                      <p>
+                          不会释放锁的锁定：
+                          (1)用Thread.sleep()、Thread.yield()来暂停当前线程的执行；<br>
+                          (2)suspend()将该线程挂起
+                      </p>
+                  </div>
+              </div>
+
+              <div class="content-part" id="content10">
+                  <div class="content-title">
+                      <h4> 线程中断</h4>
+                  </div>
+                  <div class="content-main">
+                    Thread.interrupt()方法是中断线程的方法，将会设置该线程为中断状态。当一个线程调用
+                      一个阻塞方法时就会检查这个中断标识是不是为true，来判断线程是否中断，如果判断
+                      为中断就会抛出InterruptedException。判断是否中断中断的方法用isInterrupted()方法，
+                      这个方法不会讲中断标识符给清除；而intterupted()方法也可以判断线程是否被中断，但
+                      同时会将这个中断状态给清除。
+                      <p>
+                          如果一个线程处于阻塞状态(如：sleep、join、wait、await)，则在线程检查时被发现
+                          中断标示为true，则会在阻塞方法调用时抛出InterruptedException异常。在抛出异常
+                          后立即将线程的中断标示位清除，即重新设置为false。抛出异常是为了线程
+                          从阻塞状态醒过来，并在结束线程前让程序员有足够的时间处理中断请求。
+                      </p>
+                      <p>
+                          synchronized在获得锁的过程中是不能被中断的，意味着如果产生了死锁，
+                          那么是不能中断的。与synchronized功能相似的reentrantLock.lock()方法无法
+                          终止。如果调用时被阻塞，则它到获得锁为止，都是出于阻塞状态。但是如果
+                          调用带超时停止的tryLock方法，reentrantLock.tryLock(long timeout)，如果
+                          线程被打断，那么就会抛出一个InterruptedException异常，这是一个非常有用
+                          的特性。因为他允许程序员打破死锁。也可以调用reentrantLock.lockIntteruptibly()
+                          方法，它就相当于一个无限超时的tryLock方法。
+                      </p>
+                      <p>
+                          Java中如何唤醒一个阻塞的线程？<br>
+                          如果线程因为调用wait、sleep或者join方法而导致的阻塞，可以中断线程，通过抛出
+                          IntteruptedException异常来唤醒它。
+                      </p>
+                      <div class="code">
+                          <span class="code-lev1"><span class="key">public static void </span>main(String[] <span class="args">args</span>) {</span><br>
+                          <span class="code-lev2">TestThread <span class="args">t</span>=<span class="key">new</span> TestThread();</span><br>
+                          <span class="code-lev2 zhushi">//开启线程</span><br>
+                          <span class="code-lev2"><span class="args">t</span>.start();</span><br>
+                          <span class="code-lev2"><span class="key">try </span>{</span><br>
+                          <span class="code-lev3">Thread.sleep(3000);</span><br>
+                          <span class="code-lev2">} <span class="key">catch(InterruptedException <span class="args">e</span>)</span> {</span><br>
+                          <span class="code-lev3"><span class="args">e</span>.printStackTrace();</span><br>
+                          <span class="code-lev2">}</span><br>
+                          <span class="code-lev2">System.<span class="str">out</span>.println(<span class="str">"中断线程"</span>);</span><br>
+                          <span class="code-lev2"><span class="args">t</span>.interrupt();</span><br>
+                          <span class="code-lev2">System.<span class="str">out</span>.println(<span class="str">"呼叫中断线程，等待其中断"</span>)</span><br>
+                          <span class="code-lev2"><span class="key">try</span> {</span><br>
+                          <span class="code-lev3">Thread.sleep(3000);</span><br>
+                          <span class="code-lev2"><span class="key"> catch</span>(InterruptedException <span class="args">e</span>) {</span><br>
+                          <span class="code-lev3"><span class="args">e</span>.printStackTrace();</span><br>
+                          <span class="code-lev2">}</span><br>
+                          <span class="code-lev2">System.<span class="str">out</span>.println(<span class="str">"应用结束"</span>);</span><br>
+                          <span class="code-lev1">}</span>
+                          <p>
+                              <span class="code-lev1"><span class="key">public void </span>run() {</span><br>
+                              <span class="code-lev2"><span class="key">while</span>(!Thread.currentThread().isInterrupted()) {</span>
+                              <span class="code-lev3">System.<span class="str">out</span>.println(<span class="str">"线程正在运行"</span>)</span><br>
+                              <span class="code-lev3"><span clsss="key">for</span>(<span class="key">int</span><span class="args"> i</span>=0;<span class="args">i</span><100;<span class="args">i</span>++) {</span><br>
+                              <span class="code-lev4">System.<span class="str">out</span>.println(<span class="str">"i的值："+<span class="args">i</span></span>);</span><br>
+                              <span class="code-lev3">}</span><br>
+                              <span class="code-lev3"><span class="key">try </span>{</span><br>
+                              <span class="code-lev4">Thread.sleep(2000);</span><br>
+                              <span class="code-lev3">}<span class="key"> catch</span>(InterruptedException <span class="args">e</span>) {</span><br>
+                              <span class="code-lev4">System.<span class="str">out</span>.println(<span class="str">"线程被中断"</span>);</span><br>
+                              <span class="code-lev4">Thread.currentThread().interrupt();<span class="zhushi">//code</span></span><br>
+                              <span class="code-lev3">}</span><br>
+                              <span class="code-lev2">}</span><br>
+                              <span class="code-lev1">}</span><br>
+                          </p>
+                      </div>
+                      <p>
+                      上面这段代码，如果未加"code"行代码，线程将会一直运行下去。开启的线程在主线程中被中断t.interrpt()后，主线程用sleep阻塞的方式留给开启线程一定的时间去处理中断，
+                      开启线程在调用sleep方法时会检测到这个中断状态从而抛出InterrutedException。抛出这个异常有三个作用：一是可以将中断状态清除；二是对中断请求进行处理；
+                      三是中断其的主线程将会被阻塞，直到中断请求处理完成。没有"code"行代码，中断请求就是打印了一句提示，然后再到while循环处时，条件还是为真，然后中断其的主线程
+                      就会得不到中断请求的处理结果，一直阻塞。而该线程也会一直满足条件运行。
+                      </p>
+                      <p>
+                          如果加了"code"行代码，本线程自己调用了interrupt方法来进行中断，改变了中断状态。此时while条件将不再满足，结束该线程。这样也就相当于主线程的中断请求得到
+                          响应，主线程结束程序。
+                      </p>
+                  </div>
+              </div>
+
+
+
+          </div>
+      </div>
+      <div style="border:solid red 1px;width:180px;top:86px;position: fixed;margin-left:1356px;" id="slider_bar">
+          <ul>
+              <li>
+                  <a href="#content1">JDK/JRE/JVM关系</a>
+              </li>
+              <li>
+                  <a href="#content2">创建一个Thread(线程)</a>
+              </li>
+              <li>
+                  <a href="#content3">启动线程</a>
+              </li>
+              <li>
+                  <a href="#content4">注意的问题</a>
+              </li>
+              <li>
+                  <a href="#content5">线程栈</a>
+              </li>
+              <li>
+                  <a href="#content6">线程的几种状态</a>
+              </li>
+              <li>
+                  <a href="#content7">阻塞的几种情况</a>
+              </li>
+              <li>
+                  <a href="#content8">后台线程</a>
+              </li>
+              <li>
+                  <a href="#content9">线程同步</a>
+              </li>
+              <li>
+                  <a href="#content10">线程中断</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</body>
+</html>

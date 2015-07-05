@@ -2,6 +2,13 @@
  * Created by perfect on 2015/6/19.
  */
 function init() {
+    var body_width_0=document.body.clientWidth;
+    var w0=(body_width_0-964)/2;
+    if(w0<0) {
+        w0=0;
+    }
+
+    $('.nav-box').css('margin-left',w0);
     var navUlDom=document.getElementsByName('nav')[0];
     var chs=navUlDom.children;
     var i=0;
@@ -42,4 +49,22 @@ function init() {
         }
         i++;
     });
+
+
+
+    //响应窗口大小变化的事件
+    window.onresize=function() {
+        var body_width=document.body.clientWidth;
+        var w=(body_width-964)/2;
+        if(w<0) {
+            w=0;
+        }
+
+        $('.nav-box').css('margin-left',w);
+
+        var $slider=$('#slider_bar');
+        if($slider) {
+            $slider.css('margin-left',w+964);
+        }
+    }
 }
